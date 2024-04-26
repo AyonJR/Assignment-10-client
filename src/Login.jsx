@@ -2,7 +2,6 @@
 const Login = () => {
     return (
         <div>
-            <h2>Please Login</h2>
             <div className="hero min-h-screen bg-base-200">
   <div className="hero-content flex-col ">
     <div className="text-center ">
