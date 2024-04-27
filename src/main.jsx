@@ -11,6 +11,7 @@ import Root from './Root.jsx';
 import Login from './Login.jsx';
 import Register from './Register.jsx';
 import AuthProvider from './AuthProvider.jsx';
+import AddTouristSpot from './AddTouristSpot.jsx';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/addTouristSpot",
+        element: <AddTouristSpot></AddTouristSpot>,
       },
     ]
   },
