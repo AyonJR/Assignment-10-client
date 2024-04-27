@@ -37,10 +37,10 @@ const Login = () => {
                                 <input type="password" placeholder="password" className="input input-bordered" required />
                             </div>
                             <div className="form-control mt-6">
-                                <button type="submit" className="btn btn-primary">Login</button>
+                                <button type="submit" className="btn bg-blue-950 text-white font-semibold">Login</button>
                             </div>
                             <div className="flex justify-center mt-3">
-                                <button type="button" onClick={handleGoogleLogin} className="btn bg-red-600 hover:bg-red-700 text-white">
+                                <button type="button" onClick={handleGoogleLogin} className="btn ">
                                     Sign in with Google
                                 </button>
                             </div>
