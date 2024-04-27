@@ -33,7 +33,6 @@ const AuthProvider = ({ children }) => {
         }
     };
 
-    // Function to logout the user
     const logoutUser = async () => {
         try {
             await signOut(auth);
@@ -49,7 +48,7 @@ const AuthProvider = ({ children }) => {
         createUser,
         loginUser,
         loginUserWithGoogle,
-        logoutUser // Add logoutUser function
+        logoutUser 
     };
 
     return (

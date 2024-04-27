@@ -14,6 +14,8 @@ import AuthProvider from './AuthProvider.jsx';
 import AddTouristSpot from './AddTouristSpot.jsx';
 import AddingTouristSpot from './AddingTouristSpot.jsx';
 import AllTouristSpot from './AllTouristSpot.jsx';
+import MyListPage from './MyListPage.jsx';
+import PrivateRoute from './PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -35,14 +37,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/addTouristSpot",
-        element: <AddingTouristSpot></AddingTouristSpot>,
+        element: <PrivateRoute><AddingTouristSpot></AddingTouristSpot></PrivateRoute>,
       },
       {
         
           path: "/allTouristSpot",
           element: <AllTouristSpot></AllTouristSpot>,
         
-      }
+      } , 
+      {
+        path: "/myListPage",
+        element:<PrivateRoute><MyListPage></MyListPage></PrivateRoute>
+       
+      },
     ]
   },
 ]);

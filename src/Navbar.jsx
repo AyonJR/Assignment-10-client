@@ -33,6 +33,7 @@ const Navbar = () => {
                         <NavLink to="/allTouristSpot"><a className="border-2 border-white p-2 rounded-lg">All Tourists Spot</a></NavLink>
                     </li>
                     <li><NavLink to="/addTouristSpot"><a className="border-2 border-white p-2 rounded-lg">Add Tourist Spot</a></NavLink></li>
+                    <li><NavLink to="/myListPage"><a className="border-2 border-white p-2 rounded-lg">My List</a></NavLink></li>
                 </ul>
             </div>
             <div className="navbar-end">
