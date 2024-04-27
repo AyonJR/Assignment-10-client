@@ -1,7 +1,7 @@
 
 const AddTouristsSpot = () => {
    const handleSubmit = e =>{
-    e.preventDefault()
+    e.preventDefault() 
    }
   
 

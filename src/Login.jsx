@@ -26,6 +26,15 @@ const Login = () => {
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>
         </div>
+        <div className="flex justify-between mt-3">
+           <div>
+          <button className="btn">Google</button>
+           </div>
+           <div>
+           <button className="btn">Github</button>
+
+           </div>
+        </div>
       </form>
     </div>
   </div>

@@ -12,6 +12,7 @@ import Login from './Login.jsx';
 import Register from './Register.jsx';
 import AuthProvider from './AuthProvider.jsx';
 import AddTouristSpot from './AddTouristSpot.jsx';
+import AddingTouristSpot from './AddingTouristSpot.jsx';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader:() => fetch('http://localhost:5000/addSpot')
       },
       {
         path: "/login",
@@ -32,7 +34,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/addTouristSpot",
-        element: <AddTouristSpot></AddTouristSpot>,
+        element: <AddingTouristSpot></AddingTouristSpot>,
       },
     ]
   },
