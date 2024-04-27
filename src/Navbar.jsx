@@ -26,7 +26,7 @@ const Navbar = () => {
     <ul className="menu menu-horizontal px-1">
       <li><NavLink to="/" ><a className="border-2 border-white p-2 rounded-lg">Home</a></NavLink></li>
       <li>
-        <a className="border-2 border-white p-2 rounded-lg">All Tourists Spot</a>
+        <NavLink to="allTouristSpot"><a className="border-2 border-white p-2 rounded-lg">All Tourists Spot</a></NavLink>
       </li>
       <li><NavLink to="/addTouristSpot"><a className="border-2 border-white p-2 rounded-lg">Add Tourist Spot</a></NavLink></li>
     </ul>

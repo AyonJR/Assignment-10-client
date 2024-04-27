@@ -16,9 +16,14 @@ const TouristSpot = ({ spot }) => {
                     <div className="flex justify-between">
                     <p className="font-semibold">{location}</p>
                     <p className="font-semibold">{country_name}</p>
-                </div>
-                     <p>{firstSentence}</p> 
-                    <div className="card-actions justify-end">
+                  </div>
+                     <p className="mt-3">{firstSentence}</p> 
+                     <div className="flex  justify-between font-medium mt-3">
+                        <p>{average_cost}</p>
+                        <p>{seasonality}</p>
+                        <p>{travel_time}</p>
+                     </div>
+                    <div className="card-actions justify-center mt-2">
                         <button className="btn bg-blue-950 text-white font-semibold">Show details</button>
                     </div>
                 </div>

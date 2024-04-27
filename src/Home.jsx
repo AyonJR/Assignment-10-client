@@ -19,7 +19,7 @@ const Home = () => {
              <h2 className="text-3xl flex justify-center font-semibold">Tourists spot </h2>
 
             </div>
-            <div className="mt-16 gap-5 grid md:grid-cols-2 lg:grid-cols-3 lg:ml-10"> 
+            <div className="mt-8 gap-5 grid md:grid-cols-2 lg:grid-cols-3 lg:ml-10"> 
              
                 {
                     sixSpots.map(spot => <TouristSpot key={spot._id} spot={spot}></TouristSpot>)

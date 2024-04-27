@@ -13,6 +13,7 @@ import Register from './Register.jsx';
 import AuthProvider from './AuthProvider.jsx';
 import AddTouristSpot from './AddTouristSpot.jsx';
 import AddingTouristSpot from './AddingTouristSpot.jsx';
+import AllTouristSpot from './AllTouristSpot.jsx';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,12 @@ const router = createBrowserRouter([
         path: "/addTouristSpot",
         element: <AddingTouristSpot></AddingTouristSpot>,
       },
+      {
+        
+          path: "/allTouristSpot",
+          element: <AllTouristSpot></AllTouristSpot>,
+        
+      }
     ]
   },
 ]);
