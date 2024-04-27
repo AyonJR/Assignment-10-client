@@ -5,7 +5,6 @@ import TouristSpot from "./TouristSpot";
 const Home = () => { 
     const spots = useLoaderData();
 
-    // Slice the spots array to show only the first 6 spots
     const sixSpots = spots.slice(0, 6);
 
     return (

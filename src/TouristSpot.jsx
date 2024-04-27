@@ -1,10 +1,10 @@
+import { NavLink } from "react-router-dom";
+
 const TouristSpot = ({ spot }) => { 
     const { image, tourists_spot_name, country_name, location, short_description, average_cost, seasonality, travel_time, total_visitors_per_year, user_email, user_name } = spot;
 
-    // Split the short description into an array of sentences
     const sentences = short_description.split(/[.!?]/);
 
-    // Get the first sentence
     const firstSentence = sentences[0];
 
     return (
@@ -24,7 +24,7 @@ const TouristSpot = ({ spot }) => {
                         <p>{travel_time}</p>
                      </div>
                     <div className="card-actions justify-center mt-2">
-                        <button className="btn bg-blue-950 text-white font-semibold">Show details</button>
+                        <NavLink to="/viewDetails"><button className="btn bg-blue-950 text-white font-semibold">Show details</button></NavLink>
                     </div>
                 </div>
             </div>

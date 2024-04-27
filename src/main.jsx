@@ -5,7 +5,7 @@ import './index.css'
 import {
   createBrowserRouter,
   RouterProvider,
-} from "react-router-dom";
+} from "react-router-dom"; // Import from "react-router-dom" instead of "react-router-dom"
 import Home from './Home.jsx';
 import Root from './Root.jsx';
 import Login from './Login.jsx';
@@ -16,6 +16,7 @@ import AddingTouristSpot from './AddingTouristSpot.jsx';
 import AllTouristSpot from './AllTouristSpot.jsx';
 import MyListPage from './MyListPage.jsx';
 import PrivateRoute from './PrivateRoute.jsx';
+import ViewDetails from './ViewDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -40,15 +41,16 @@ const router = createBrowserRouter([
         element: <PrivateRoute><AddingTouristSpot></AddingTouristSpot></PrivateRoute>,
       },
       {
-        
-          path: "/allTouristSpot",
-          element: <AllTouristSpot></AllTouristSpot>,
-        
-      } , 
+        path: "/allTouristSpot",
+        element: <AllTouristSpot></AllTouristSpot>,
+      },
       {
         path: "/myListPage",
         element:<PrivateRoute><MyListPage></MyListPage></PrivateRoute>
-       
+      },
+      {
+        path: "/viewDetails", 
+        element:<ViewDetails></ViewDetails>
       },
     ]
   },
@@ -57,10 +59,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
-
-
-
+      <RouterProvider router={router}>
+        <App />
+      </RouterProvider>
     </AuthProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 )
