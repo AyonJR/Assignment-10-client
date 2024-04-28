@@ -1,11 +1,18 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLoaderData } from "react-router-dom";
 
 const TouristSpot = ({ spot }) => { 
-    const { image, tourists_spot_name, country_name, location, short_description, average_cost, seasonality, travel_time, total_visitors_per_year, user_email, user_name } = spot;
+    const { _id, image, tourists_spot_name, country_name, location, short_description, average_cost, seasonality, travel_time, total_visitors_per_year, user_email, user_name } = spot;
 
     const sentences = short_description.split(/[.!?]/);
 
-    const firstSentence = sentences[0];
+    const firstSentence = sentences[0]; 
+
+
+    
+    const handleShowDetails = (id) => {
+       console.log(id) ; 
+    }
+
 
     return (
         <div>
@@ -24,7 +31,9 @@ const TouristSpot = ({ spot }) => {
                         <p>{travel_time}</p>
                      </div>
                     <div className="card-actions justify-center mt-2">
-                        <NavLink to="/viewDetails"><button className="btn bg-blue-950 text-white font-semibold">Show details</button></NavLink>
+                        <NavLink to='/viewDetails/:id'>
+                        <button  className="btn bg-blue-950 text-white font-semibold">Show details</button>
+                        </NavLink>
                     </div>
                 </div>
             </div>

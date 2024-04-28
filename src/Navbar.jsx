@@ -41,14 +41,13 @@ const Navbar = () => {
                     <>
                         {/* User photo and logout button */}
                         <div className="relative">
-                            <img src={user.photoURL} alt={user.displayName} className="w-10 h-10 rounded-full cursor-pointer" />
+                            <img src={user.photoURL} alt={user.displayName} className="w-10 h-10 mr-4 rounded-full cursor-pointer" />
                             <span className="absolute top-full left-1/2 transform -translate-x-1/2 bg-black text-white text-xs py-1 px-2 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300">{user.displayName}</span>
                         </div>
-                        <button onClick={logoutUser} className="btn">Logout</button> {/* Call logoutUser function on button click */}
+                        <button onClick={logoutUser} className="btn">Logout</button> 
                     </>
                 ) : (
                     <>
-                        {/* Login and register buttons */}
                         <NavLink to="/login"><a className="btn mr-2">Login</a></NavLink>
                         <NavLink to="/register"><a className="btn">Register</a></NavLink>
                     </>

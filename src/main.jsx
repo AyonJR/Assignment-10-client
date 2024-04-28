@@ -17,11 +17,13 @@ import AllTouristSpot from './AllTouristSpot.jsx';
 import MyListPage from './MyListPage.jsx';
 import PrivateRoute from './PrivateRoute.jsx';
 import ViewDetails from './ViewDetails.jsx';
+import NotFound from './NotFound.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement:<NotFound></NotFound>,
     children: [
       {
         path: "/",
@@ -46,11 +48,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/myListPage",
-        element:<PrivateRoute><MyListPage></MyListPage></PrivateRoute>
+        element:<MyListPage></MyListPage>,
+        // loader: ({params})=> fetch(`http://localhost:5000/addSpot/${params.email}`)
       },
       {
-        path: "/viewDetails", 
-        element:<ViewDetails></ViewDetails>
+        path: "/viewDetails/:id", 
+        element:<ViewDetails></ViewDetails>,
+        loader: ({params}) => fetch(`http://localhost:5000/addSpot/${params.id}`)
+        
       },
     ]
   },
