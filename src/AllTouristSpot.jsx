@@ -60,7 +60,7 @@ const AllTouristSpot = () => {
             {/* Display tourist spots */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {sortedSpots.map((spot) => (
-                    <div key={spot.id} className="card bg-white shadow-md">
+                    <div key={spot.id} className="card lg:mx-0 mx-3 bg-white shadow-md">
                         <img src={spot.image} alt={spot.tourists_spot_name} className="h-48 w-full object-cover" />
                         <div className="p-4">
                             <h3 className="text-2xl flex justify-center font-semibold mb-2">{spot.tourists_spot_name}</h3>

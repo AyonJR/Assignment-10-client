@@ -48,7 +48,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/myListPage",
-        element:<MyListPage></MyListPage>,
+        element:<PrivateRoute><MyListPage></MyListPage></PrivateRoute>,
         // loader: ({params})=> fetch(`http://localhost:5000/addSpot/${params.email}`)
       },
       {
