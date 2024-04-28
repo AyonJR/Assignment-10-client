@@ -1,0 +1,13 @@
+/* Light theme styles */
+.theme-light {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    /* Other light theme styles */
+}
+
+/* Dark theme styles */
+.theme-dark {
+    --bg-color: #1a202c;
+    --text-color: #ffffff;
+    /* Other dark theme styles */
+}
