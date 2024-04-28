@@ -9,28 +9,11 @@ const Home = () => {
     const spots = useLoaderData();
     const sixSpots = spots.slice(0, 6);
 
-    const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light");
-
-    useEffect(() => {
-        document.documentElement.setAttribute("data-theme", theme);
-        localStorage.setItem("theme", theme);
-    }, [theme]);
-
-    const toggleTheme = () => {
-        setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-    };
 
     return (
-        <div>
-            {/* <div className="flex justify-end mr-5 mt-5">
-                <label className="switch">
-                    <input type="checkbox" onChange={toggleTheme} checked={theme === "dark"} />
-                    <span className="switch-button"></span>
-                </label>
-            </div> */}
-          <div className="relative left-64 bottom-[50px]">
-          <input type="checkbox" checked={theme === "dark"} onChange={toggleTheme} value="synthwave" className="toggle  switch theme-controller"/>
-          </div>
+        <div className="">
+          
+         
             <div>
                 <Slider></Slider>
             </div>

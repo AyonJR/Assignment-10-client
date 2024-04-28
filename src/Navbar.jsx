@@ -1,9 +1,21 @@
 import { NavLink } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./AuthProvider";
 
 const Navbar = () => {
     const { user, logoutUser } = useContext(AuthContext); // Get logoutUser function from context
+
+    const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light");
+
+    useEffect(() => {
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+    }, [theme]);
+
+    const toggleTheme = () => {
+        setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+    };
+
 
     return (
         <div className="navbar bg-gradient-to-r from-blue-950 to-purple-900 text-white">
@@ -36,7 +48,10 @@ const Navbar = () => {
                     <li><NavLink to="/myListPage"><a className="border-2 border-white p-2 rounded-lg">My List</a></NavLink></li>
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end"> 
+            <div className="mr-2 ">
+          <input type="checkbox" checked={theme === "dark"} onChange={toggleTheme} value="synthwave" className="toggle  switch theme-controller"/>
+          </div>
                 {user ? (
                     <>
                         {/* User photo and logout button */}
