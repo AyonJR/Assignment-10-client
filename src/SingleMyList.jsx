@@ -1,27 +1,13 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-const SingleMyList = ({singleUserData}) => { 
+const SingleMyList = ({singleUserData , handleDelete}) => { 
 
   const [users , setUsers] = useState(singleUserData)
      
       const { _id, image, tourists_spot_name, country_name, location, short_description, average_cost, seasonality, travel_time, total_visitors_per_year, user_email, user_name } = singleUserData ;
 
-    const handleDelete = id => { 
-
-      fetch(`http://localhost:5000/addSpot/${_id}` , {
-        method: 'DELETE'
-      })
-      .then(res => res.json())
-      .then(data => {
-        if(data.deletedCount > 0){
-          console.log(data)
-          console.log("deleted successfully")
-          const remainingUsers = users.filter(user => user._id !== id)
-          setUsers(remainingUsers)
-        }
-      })
-
-    }
+   
 
 
 
@@ -44,8 +30,10 @@ const SingleMyList = ({singleUserData}) => {
         <td>{tourists_spot_name}</td>
         <td>{location}</td>
         <td>{average_cost}</td>
-        <td><button className="btn text-white font-semibold bg-gradient-to-r from-blue-950 to-purple-900">Update</button></td>
-        <td><button onClick={()=> handleDelete (_id)} className="btn text-white font-semibold bg-gradient-to-r from-blue-950 to-purple-900">Delete</button></td>
+        <td><Link to={`/updateInfo/${_id}`}>
+        <button  className="btn text-white font-semibold bg-gradient-to-r from-blue-950 to-purple-900">Update</button>
+        </Link></td>
+        <td><button onClick={()=> handleDelete(_id)} className="btn text-white font-semibold bg-gradient-to-r from-blue-950 to-purple-900">Delete</button></td>
       </tr>
    
     </tbody>

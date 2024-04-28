@@ -20,15 +20,32 @@ const MyListPage = () => {
   } , [])
  
   //  console.log(userData) 
+  const handleDelete = id => { 
 
-   //then we have to map 
+    console.log(id)
+
+    fetch(`http://localhost:5000/addSpot/${id}` , {
+      method: 'DELETE'
+    })
+    .then(res => res.json())
+    .then(data => {
+      if(data.deletedCount > 0){
+        console.log(data)
+        console.log("deleted successfully")
+       const remaining = userData.filter(data => data._id !== id)
+       setUserData(remaining)
+      }
+    })
+
+  }
+
 
 
   return (
 
     <div>
       {
-        userData.map(singleUserData => <SingleMyList singleUserData={singleUserData}></SingleMyList>)
+        userData.map(singleUserData => <SingleMyList key={singleUserData._id} singleUserData={singleUserData} handleDelete={handleDelete}></SingleMyList>)
       }
 
     </div>

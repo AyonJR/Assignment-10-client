@@ -1,12 +1,15 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "./AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
-    const [showToast, setShowToast] = useState(false);
+    const [showToast, setShowToast] = useState(false); 
+
+    const location = useLocation() ; 
+    const navigate = useNavigate()
 
     const handleSignUp = async (e) => {
         e.preventDefault();
@@ -20,6 +23,8 @@ const Register = () => {
             await createUser(email, password);
             toast.success("Registered successfully");
             setShowToast(true);
+            navigate(location?.state ? location.state : "/")
+
         } catch (error) {
             console.error("Registration error:", error);
             toast.error("Registration failed");
@@ -61,7 +66,7 @@ const Register = () => {
                                 <input type="password" placeholder="password" name="password" className="input input-bordered" required />
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Register</button>
+                                <button className="btn bg-gradient-to-r from-blue-950 to-purple-900 text-white">Register</button>
                             </div>
                             <div>
                                 Already have an account? <Link to="/login"><span className="text-blue-600"> Login here</span></Link>

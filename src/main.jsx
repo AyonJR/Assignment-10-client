@@ -18,6 +18,7 @@ import MyListPage from './MyListPage.jsx';
 import PrivateRoute from './PrivateRoute.jsx';
 import ViewDetails from './ViewDetails.jsx';
 import NotFound from './NotFound.jsx';
+import UpdateInfo from './UpdateInfo.jsx';
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,11 @@ const router = createBrowserRouter([
         loader: ({params}) => fetch(`http://localhost:5000/addSpot/${params.id}`)
         
       },
+      {
+        path:"/updateInfo/:id" ,
+        element:<UpdateInfo></UpdateInfo> ,
+        loader: ({params}) => fetch(`http://localhost:5000/addSpot/${params.id}`)
+      } 
     ]
   },
 ]);

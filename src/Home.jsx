@@ -4,6 +4,7 @@ import Slider from "./Slider";
 import TouristSpot from "./TouristSpot";
 import AboutUsSection from "./AboutUsSection";
 import WhatWeOfferSection from "./WhatWeOfferSection";
+import Countries from "./Countries";
 
 const Home = () => {
     const spots = useLoaderData();
@@ -26,6 +27,10 @@ const Home = () => {
                 {sixSpots.map((spot) => (
                     <TouristSpot key={spot._id} spot={spot}></TouristSpot>
                 ))}
+            </div>
+
+            <div >
+                <Countries></Countries>
             </div>
 
             <div className="mt-20">

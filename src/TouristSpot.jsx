@@ -1,8 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 
 const TouristSpot = ({ spot }) => {
-    const { image, tourists_spot_name, country_name, location, short_description, average_cost, seasonality, travel_time } = spot;
+    const {_id , image, tourists_spot_name, country_name, location, short_description, average_cost, seasonality, travel_time , } = spot;
 
     const sentences = short_description.split(/[.!?]/);
     const firstSentence = sentences[0];
@@ -25,9 +25,9 @@ const TouristSpot = ({ spot }) => {
                             <p>{travel_time}</p>
                         </div>
                         <div className="card-actions justify-center mt-2">
-                            <NavLink to='/viewDetails/:id'>
-                                <button className="btn bg-gradient-to-r from-blue-950 to-purple-900 text-white font-semibold">Show details</button>
-                            </NavLink>
+                            <Link to={`/viewDetails/${_id}`}>
+                            <button className="btn bg-gradient-to-r from-blue-950 to-purple-900 text-white font-semibold">Show details</button>
+                            </Link>
                         </div>
                     </div>
                 </div>
