@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import Slider from "./Slider";
 import TouristSpot from "./TouristSpot";
+import AboutUsSection from "./AboutUsSection";
 
 const Home = () => { 
     const spots = useLoaderData();
@@ -24,6 +25,9 @@ const Home = () => {
                     sixSpots.map(spot => <TouristSpot key={spot._id} spot={spot}></TouristSpot>)
                 }
                 
+            </div>
+            <div>
+                <AboutUsSection></AboutUsSection>
             </div>
         </div>
     );
