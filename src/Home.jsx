@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import Slider from "./Slider";
 import TouristSpot from "./TouristSpot";
 import AboutUsSection from "./AboutUsSection";
+import WhatWeOfferSection from "./WhatWeOfferSection";
 
 const Home = () => { 
     const spots = useLoaderData();
@@ -26,7 +27,10 @@ const Home = () => {
                 }
                 
             </div>
-            <div>
+            <div className="mt-20">
+                <WhatWeOfferSection></WhatWeOfferSection>
+            </div>
+            <div className="mt-20">
                 <AboutUsSection></AboutUsSection>
             </div>
         </div>

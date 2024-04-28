@@ -32,7 +32,7 @@ const TouristSpot = ({ spot }) => {
                      </div>
                     <div className="card-actions justify-center mt-2">
                         <NavLink to='/viewDetails/:id'>
-                        <button  className="btn bg-blue-950 text-white font-semibold">Show details</button>
+                        <button  className="btn bg-gradient-to-r from-blue-950 to-purple-900 text-white font-semibold">Show details</button>
                         </NavLink>
                     </div>
                 </div>

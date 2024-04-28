@@ -6,7 +6,7 @@ const Navbar = () => {
     const { user, logoutUser } = useContext(AuthContext); // Get logoutUser function from context
 
     return (
-        <div className="navbar bg-blue-950 text-white">
+        <div className="navbar bg-gradient-to-r from-blue-950 to-purple-900 text-white">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

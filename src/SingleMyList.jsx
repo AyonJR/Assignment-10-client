@@ -21,6 +21,8 @@ const SingleMyList = ({singleUserData}) => {
         <td>{tourists_spot_name}</td>
         <td>{location}</td>
         <td>{average_cost}</td>
+        <td><button className="btn text-white font-semibold bg-gradient-to-r from-blue-950 to-purple-900">Update</button></td>
+        <td><button className="btn text-white font-semibold bg-gradient-to-r from-blue-950 to-purple-900">Delete</button></td>
       </tr>
    
     </tbody>
