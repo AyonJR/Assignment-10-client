@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
-    const { loginUserWithGoogle } = useContext(AuthContext);
+    const { loginUserWithGoogle , loginUserWithGithub } = useContext(AuthContext);
 
     const handleGoogleLogin = async () => {
         try {
@@ -16,6 +16,19 @@ const Login = () => {
             toast.error("Google login failed");
         }
     };
+       
+    const handleGithubLogin = async () => {
+        try {
+            await loginUserWithGithub();
+            toast.success("Logged in with Github successfully");
+        } catch (error) {
+            console.error("Github login error:", error);
+            toast.error("Github login failed");
+        }
+    };
+
+
+
 
     return (
         <div>
@@ -44,6 +57,11 @@ const Login = () => {
                             <div className="flex justify-center mt-3">
                                 <button type="button" onClick={handleGoogleLogin} className="btn">
                                     Sign in with Google
+                                </button>
+                            </div>
+                            <div className="flex justify-center mt-3">
+                                <button type="button" onClick={handleGithubLogin} className="btn">
+                                    Sign in with Github
                                 </button>
                             </div>
                         </form>
