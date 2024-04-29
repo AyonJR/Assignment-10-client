@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Fade } from "react-awesome-reveal";
+
 
 const AllTouristSpot = () => {
     const [spots, setSpots] = useState([]);
@@ -43,7 +46,9 @@ const AllTouristSpot = () => {
         console.log(`Navigating to details page for spot with ID: ${spotId}`);
     };
 
-    return (
+    return ( 
+        <Fade direction="left" cascade>
+
         <div className="container mx-auto">
             {/* Sort dropdown menu */}
            <div className='flex justify-center font-semibold my-6'>
@@ -68,12 +73,16 @@ const AllTouristSpot = () => {
                             <p className='font-normal'>Total Visitors Per Year: <span className='font-semibold'>{spot.total_visitors_per_year}</span></p>
                             <p className='font-normal'>Travel Time: <span className='font-semibold'>{spot.travel_time}</span></p>
                             <p className='font-normal'>Seasonality: <span className='font-semibold'>{spot.seasonality}</span></p>
-                            <button className="mt-2 bg-blue-950 font-semibold text-white px-4 py-2  rounded-md" onClick={() => navigateToDetails(spot.id)}>View Details</button>
+                         <Link to={`/viewDetails/${spot._id}`} >
+                         <button className="mt-2 bg-blue-950 font-semibold text-white px-4 py-2  rounded-md" onClick={() => navigateToDetails(spot.id)}>View Details</button>
+                         </Link>
                         </div>
                     </div>
                 ))}
             </div>
         </div>
+        </Fade>
+
     );
 };
 

@@ -1,4 +1,5 @@
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+
 
 const AddingTouristSpot = () => {
   const handleSubmit = event => {
@@ -41,25 +42,40 @@ const AddingTouristSpot = () => {
     })
     .then(res => res.json())
     .then(data => {
-        console.log(data);
-        if (data.insertedID) {
-            Swal.fire({
-                title: 'Success!',
-                text: 'Spot added successfully!',
-                icon: 'success',
-                confirmButtonText: 'Cool'
-            });
-        } else {
-            // Handle error condition if needed
-            console.error('Failed to add spot:', data.error);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        // Handle fetch error if needed
-    });
-};
-
+      console.log(data);
+      if (data.insertedId) {
+          // Show success SweetAlert if data insertion is successful
+          Swal.fire({
+              title: 'Success!',
+              text: 'Spot added successfully!',
+              icon: 'success',
+              confirmButtonText: 'Cool'
+          });
+      } else {
+          // Handle error condition if data insertion fails
+          console.error('Failed to add spot:', data.error || 'Unknown error');
+          // Show error SweetAlert with appropriate message
+          Swal.fire({
+              title: 'Error!',
+              text: data.error || 'Failed to add spot. Please try again later.',
+              icon: 'error',
+              confirmButtonText: 'OK'
+          });
+      }
+  })
+  .catch(error => {
+      console.error('Error:', error);
+      // Handle fetch error if needed
+      // Show error SweetAlert for fetch errors
+      Swal.fire({
+          title: 'Error!',
+          text: 'An error occurred. Please try again later.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+      });
+  });
+    
+  }
     
       return (
         <div className="container mt-5 mx-auto">
@@ -75,8 +91,19 @@ const AddingTouristSpot = () => {
         <input type="text" name="tourists_spot_name" className="mt-1 block w-full rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required />
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700">Country Name</label>
-        <input type="text" name="country_name" className="mt-1 block w-full rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required />
+      <label className="block text-sm font-medium text-gray-700">Country Name</label>
+<select name="country_name" className="mt-1 block w-full rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
+  <option value="">Select a country</option>
+  <option value="Bangladesh">Bangladesh</option>
+  <option value="Thailand">Thailand</option>
+  <option value="Indonesia">Indonesia</option>
+  <option value="Malaysia">Malaysia</option>
+  <option value="Vietnam">Vietnam</option>
+  <option value="Cambodia">Cambodia</option>
+
+  {/* Add more options as needed */}
+</select>
+
       </div>
       <div>
         <label className="block text-sm font-medium text-gray-700">Location</label>
@@ -115,6 +142,7 @@ const AddingTouristSpot = () => {
       Add
     </button>
   </form>
+
 </div>
 
       );
