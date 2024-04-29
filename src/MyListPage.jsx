@@ -60,19 +60,32 @@ const MyListPage = () => {
   };
 
   return (
-    <div> 
+      <div className="container mx-auto px-4">
       <div className="flex justify-center text-3xl font-semibold mt-5">
         <h2>My List</h2>
       </div>
 
-      <div className="mt-5">
-      {userData.map(singleUserData => (
-        <SingleMyList
-          key={singleUserData._id}
-          singleUserData={singleUserData}
-          handleDelete={handleDelete}
-        ></SingleMyList>
-      ))}
+      <div className="mt-5 overflow-x-auto">
+        <table className="min-w-full divide-y divide-gray-200">
+          <thead className="bg-gray-50">
+            <tr>
+              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tourists Spot</th>
+              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Location</th>
+              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cost</th>
+              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+            </tr>
+          </thead>
+          <tbody className="bg-white divide-y divide-gray-200">
+            {userData.map(singleUserData => (
+              <SingleMyList
+                key={singleUserData._id}
+                singleUserData={singleUserData}
+                handleDelete={handleDelete}
+              ></SingleMyList>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
