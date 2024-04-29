@@ -1,15 +1,15 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "./AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import Swal from 'sweetalert2';
+import "sweetalert2/dist/sweetalert2.css";
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
-    const [showToast, setShowToast] = useState(false); 
+    const [showSwal, setShowSwal] = useState(false);
 
-    const location = useLocation() ; 
-    const navigate = useNavigate()
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleSignUp = async (e) => {
         e.preventDefault();
@@ -21,14 +21,24 @@ const Register = () => {
 
         try {
             await createUser(email, password);
-            toast.success("Registered successfully");
-            setShowToast(true);
-            navigate(location?.state ? location.state : "/")
-
+            Swal.fire({
+                title: 'Success!',
+                text: 'Registered successfully',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then(() => {
+                setShowSwal(true);
+                navigate(location?.state ? location.state : "/");
+            });
         } catch (error) {
             console.error("Registration error:", error);
-            toast.error("Registration failed");
-            setShowToast(true);
+            Swal.fire({
+                title: 'Error!',
+                text: 'Registration failed',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+            setShowSwal(true);
         }
     };
 
@@ -68,14 +78,13 @@ const Register = () => {
                             <div className="form-control mt-6">
                                 <button className="btn bg-gradient-to-r from-blue-950 to-purple-900 text-white">Register</button>
                             </div>
-                            <div>
-                                Already have an account? <Link to="/login"><span className="text-blue-600"> Login here</span></Link>
+                            <div className="mt-3">
+                                Already have an account? <Link to="/login"><span className="text-blue-600 font-semibold"> Login here</span></Link>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-            <ToastContainer />
         </div>
     );
 };

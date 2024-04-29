@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./AuthProvider";
 
+
 const Navbar = () => {
     const { user, logoutUser } = useContext(AuthContext); // Get logoutUser function from context
 
@@ -40,12 +41,12 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><NavLink to="/"><a className="border-2 border-white p-2 rounded-lg">Home</a></NavLink></li>
+                    <li><NavLink to="/"><a className="font-bold p-2 rounded-lg">Home</a></NavLink></li>
                     <li>
-                        <NavLink to="/allTouristSpot"><a className="border-2 border-white p-2 rounded-lg">All Tourists Spot</a></NavLink>
+                        <NavLink to="/allTouristSpot"><a className="font-bold p-2 rounded-lg">All Tourists Spot</a></NavLink>
                     </li>
-                    <li><NavLink to="/addTouristSpot"><a className="border-2 border-white p-2 rounded-lg">Add Tourist Spot</a></NavLink></li>
-                    <li><NavLink to="/myListPage"><a className="border-2 border-white p-2 rounded-lg">My List</a></NavLink></li>
+                    <li><NavLink to="/addTouristSpot"><a className="font-bold p-2 rounded-lg">Add Tourist Spot</a></NavLink></li>
+                    <li><NavLink to="/myListPage"><a className="font-bold p-2 rounded-lg">My List</a></NavLink></li>
                 </ul>
             </div>
             <div className="navbar-end"> 
@@ -63,8 +64,8 @@ const Navbar = () => {
                     </>
                 ) : (
                     <>
-                        <NavLink to="/login"><a className="btn mr-2">Login</a></NavLink>
-                        <NavLink to="/register"><a className="btn">Register</a></NavLink>
+                        <NavLink to="/login"><a className="btn font-bold mr-2 text-purple-700">Login</a></NavLink>
+                        <NavLink to="/register"><a className="btn font-bold text-purple-700">Register</a></NavLink>
                     </>
                 )}
             </div>

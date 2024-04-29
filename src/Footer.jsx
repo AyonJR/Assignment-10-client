@@ -2,7 +2,8 @@ import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <footer className="bg-gradient-to-r from-blue-950 to-purple-900 text-white py-8">
+        <div className='mt-56'>
+            <footer className="bg-gradient-to-r from-blue-950 to-purple-900 text-white py-8">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {/* Logo and Website Name */}
@@ -46,6 +47,7 @@ const Footer = () => {
                 </div>
             </div>
         </footer>
+        </div>
     );
 };
 

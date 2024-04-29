@@ -1,40 +1,56 @@
 import React, { useContext } from "react";
 import { AuthContext } from "./AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { FaGoogle , FaGithub  } from 'react-icons/fa';
-
+import Swal from 'sweetalert2';
+import "sweetalert2/dist/sweetalert2.css";
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 const Login = () => {
-    const { loginUserWithGoogle , loginUserWithGithub } = useContext(AuthContext); 
-
-    const location = useLocation() ;
-    const navigate = useNavigate()
+    const { loginUserWithGoogle, loginUserWithGithub } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleGoogleLogin = async () => {
         try {
             await loginUserWithGoogle();
-            toast.success("Logged in with Google successfully");
-            navigate(location?.state ? location.state : "/")
+            Swal.fire({
+                title: 'Success!',
+                text: 'Logged in with Google successfully',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+            }).then(() => {
+                navigate(location?.state ? location.state : "/");
+            });
         } catch (error) {
             console.error("Google login error:", error);
-            toast.error("Google login failed");
+            Swal.fire({
+                title: 'Error!',
+                text: 'Google login failed',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
         }
     };
-       
+
     const handleGithubLogin = async () => {
         try {
             await loginUserWithGithub();
-            toast.success("Logged in with Github successfully");
+            Swal.fire({
+                title: 'Success!',
+                text: 'Logged in with Github successfully',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+            });
         } catch (error) {
             console.error("Github login error:", error);
-            toast.error("Github login failed");
+            Swal.fire({
+                title: 'Error!',
+                text: 'Github login failed',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
         }
     };
-
-
-
 
     return (
         <div>
@@ -60,21 +76,25 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <button type="submit" className="btn bg-gradient-to-r from-blue-950 to-purple-900 text-white font-semibold">Login</button>
                             </div>
-                            <div className="flex justify-center mt-3">
-                            <button type="button" onClick={handleGoogleLogin} className="btn">
-            <FaGoogle className="inline-block mr-2" /> Google
-        </button>
+                         <div className="flex justify-between">
+                         <div className="flex justify-center mt-3">
+                                <button type="button" onClick={handleGoogleLogin} className="btn bg-gradient-to-r from-blue-950 to-purple-900 text-white">
+                                    <FaGoogle className="inline-block mr-2" /> Google
+                                </button>
                             </div>
-                            <div className="flex justify-center mt-3">
-                            <button type="button" onClick={handleGithubLogin} className="btn">
-            <FaGithub className="inline-block mr-2" /> GitHub
-        </button>
+                            <div className="flex justify-center ml-2 mt-3">
+                                <button type="button" onClick={handleGithubLogin} className="btn bg-gradient-to-r from-blue-950 to-purple-900 text-white">
+                                    <FaGithub className="inline-block mr-2" /> GitHub
+                                </button>
+                            </div>
+                         </div>
+                         <div className="mt-3">
+                                Don't have an account? <Link to="/register"><span className="text-blue-600 font-semibold"> Register here</span></Link>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-            <ToastContainer />
         </div>
     );
 };

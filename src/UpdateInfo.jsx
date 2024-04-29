@@ -1,51 +1,78 @@
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 const UpdateInfo = () => { 
 
     const loadedData = useLoaderData();
     const {_id , image, tourists_spot_name, country_name, location, short_description, average_cost, seasonality, travel_time , total_visitors_per_year , user_email , user_name } = loadedData ;
-    console.log(loadedData) ;
    
-   
+    const handleUpdate = (event) => {
+        event.preventDefault(); 
+        const form = event.target;
+        const updatedImage = form.image.value;
+        const updatedTouristsSpotName = form.tourists_spot_name.value;
+        const updatedCountryName = form.country_name.value;
+        const updatedLocation = form.location.value;
+        const updatedShortDescription = form.short_description.value;
+        const updatedAverageCost = form.average_cost.value;
+        const updatedSeasonality = form.seasonality.value;
+        const updatedTravelTime = form.travel_time.value;
+        const updatedTotalVisitorsPerYear = form.total_visitors_per_year.value;
+        const updatedUserEmail = form.user_email.value;
+        const updatedUserName = form.user_name.value;
 
-   const handleUpdate = (event) => {
-    
-    event.preventDefault() ; 
-    const form = event.target ;
-    const image = form.image.value ;
-    const tourists_spot_name = form.tourists_spot_name.value ;
-    const country_name = form.country_name.value ;
-    const location = form.location.value ;
-    const short_description = form.short_description.value ;
-    const average_cost = form.average_cost.value ;
-    const seasonality = form.seasonality.value ;
-    const travel_time = form.travel_time.value ;
-    const total_visitors_per_year = form.total_visitors_per_year.value ;
-    const user_email = form.user_email.value;
-    const user_name = form.user_name.value;
-     
-    form.reset();
+        const updateSpot = {
+            image: updatedImage,
+            tourists_spot_name: updatedTouristsSpotName,
+            country_name: updatedCountryName,
+            location: updatedLocation,
+            short_description: updatedShortDescription,
+            average_cost: updatedAverageCost,
+            seasonality: updatedSeasonality,
+            travel_time: updatedTravelTime,
+            total_visitors_per_year: updatedTotalVisitorsPerYear,
+            user_email: updatedUserEmail,
+            user_name: updatedUserName
+        };
 
+        fetch(`http://localhost:5000/addSpot/${_id}`, {
+            method: "PUT",
+            headers: {
+                "content-type":"application/json"
+            },
+            body: JSON.stringify(updateSpot)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.modifiedCount > 0) {
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Spot updated successfully!',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                });
+            } else {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Failed to update spot. Please try again later.',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error updating spot:', error);
+            Swal.fire({
+                title: 'Error!',
+                text: 'Failed to update spot. Please try again later.',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            });
+        });
 
-    const updateSpot = { image , tourists_spot_name , country_name , location , short_description , average_cost , seasonality , travel_time , total_visitors_per_year , user_email , user_name} 
-
-    fetch(`http://localhost:5000/addSpot/${_id}`,
-     
-    { 
-        method: "PUT" , 
-        headers: {
-            "content-type":"application/json"
-        } , 
-        body: JSON.stringify(updateSpot)
-    }
-    
-    
-    )
-    .then(res => res.json())
-    .then(data => console.log(data))
-    
-
-   }
+        form.reset();
+    };
 
 
 

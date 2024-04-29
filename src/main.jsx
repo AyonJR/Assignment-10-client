@@ -55,13 +55,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/viewDetails/:id", 
-        element:<ViewDetails></ViewDetails>,
+        element:<PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
         loader: ({params}) => fetch(`http://localhost:5000/addSpot/${params.id}`)
         
       },
       {
         path:"/updateInfo/:id" ,
-        element:<UpdateInfo></UpdateInfo> ,
+        element:<PrivateRoute><UpdateInfo></UpdateInfo></PrivateRoute> ,
         loader: ({params}) => fetch(`http://localhost:5000/addSpot/${params.id}`)
       } ,
       {
