@@ -19,6 +19,7 @@ import PrivateRoute from './PrivateRoute.jsx';
 import ViewDetails from './ViewDetails.jsx';
 import NotFound from './NotFound.jsx';
 import UpdateInfo from './UpdateInfo.jsx';
+import SingleCountryDetails from './SingleCountryDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -62,7 +63,14 @@ const router = createBrowserRouter([
         path:"/updateInfo/:id" ,
         element:<UpdateInfo></UpdateInfo> ,
         loader: ({params}) => fetch(`http://localhost:5000/addSpot/${params.id}`)
-      } 
+      } ,
+      {
+        path: "/singleCountryDetails/:country",
+        element: <SingleCountryDetails />,
+        loader: ({ params }) => fetch(`http://localhost:5000/countries/${params.country}`)
+    }
+    
+   
     ]
   },
 ]);

@@ -8,7 +8,7 @@ const TouristSpot = ({ spot }) => {
     const firstSentence = sentences[0];
 
     return (
-        <Fade direction="up" triggerOnce>
+        <Fade direction="up" cascade>
             <div>
                 <div className="card lg:mx-0 mx-3 lg:w-96 bg-base-100 shadow-xl">
                     <figure><img className="lg:h-[250px] w-full" src={image} alt="Shoes" /></figure>
