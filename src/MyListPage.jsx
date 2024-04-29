@@ -60,7 +60,7 @@ const MyListPage = () => {
   };
 
   return (
-      <div className="container mx-auto px-4">
+     <div className="container mx-auto px-4">
       <div className="flex justify-center text-3xl font-semibold mt-5">
         <h2>My List</h2>
       </div>

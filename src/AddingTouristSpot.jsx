@@ -1,52 +1,69 @@
 import Swal from 'sweetalert2'
 
 const AddingTouristSpot = () => {
-    const handleSubmit = event =>{
-        event.preventDefault() ; 
-        const form = event.target ;
-        const image = form.image.value ;
-        const tourists_spot_name = form.tourists_spot_name.value ;
-        const country_name = form.country_name.value ;
-        const location = form.location.value ;
-        const short_description = form.short_description.value ;
-        const average_cost = form.average_cost.value ;
-        const seasonality = form.seasonality.value ;
-        const travel_time = form.travel_time.value ;
-        const total_visitors_per_year = form.total_visitors_per_year.value ;
-        const user_email = form.user_email.value;
-        const user_name = form.user_name.value; 
+  const handleSubmit = event => {
+    event.preventDefault();
+    const form = event.target;
+    const image = form.image.value;
+    const tourists_spot_name = form.tourists_spot_name.value;
+    const country_name = form.country_name.value;
+    const location = form.location.value;
+    const short_description = form.short_description.value;
+    const average_cost = form.average_cost.value;
+    const seasonality = form.seasonality.value;
+    const travel_time = form.travel_time.value;
+    const total_visitors_per_year = form.total_visitors_per_year.value;
+    const user_email = form.user_email.value;
+    const user_name = form.user_name.value;
 
-        form.reset()
+    form.reset();
 
-        const AddSpot = { image , tourists_spot_name , country_name , location , short_description , average_cost , seasonality , travel_time , total_visitors_per_year , user_email , user_name}
-        console.log(AddSpot) 
+    const AddSpot = {
+        image,
+        tourists_spot_name,
+        country_name,
+        location,
+        short_description,
+        average_cost,
+        seasonality,
+        travel_time,
+        total_visitors_per_year,
+        user_email,
+        user_name
+    };
 
-        fetch('http://localhost:5000/addSpot' , {
-            method:'POST' , 
-            headers: {
-                'content-type': 'application/json'
-            } , 
-            body: JSON.stringify(AddSpot)
+    fetch('http://localhost:5000/addSpot', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(AddSpot)
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        if (data.insertedID) {
+            Swal.fire({
+                title: 'Success!',
+                text: 'Spot added successfully!',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+            });
+        } else {
+            // Handle error condition if needed
+            console.error('Failed to add spot:', data.error);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        // Handle fetch error if needed
+    });
+};
 
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data) 
-            if(data.insertedID){
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'Spot added successfully!',
-                    icon: 'success',
-                    confirmButtonText: 'Cool'
-                  })
-            }
-        })
-       }
-      
     
       return (
-        <div className="container mx-auto">
-  <h2 className="text-3xl flex justify-center font-bold mb-8">Add Tourists Spot</h2>
+        <div className="container mt-5 mx-auto">
+  <h2 className="text-3xl flex justify-center  font-bold mb-8">Add Tourists Spot</h2>
   <form onSubmit={handleSubmit} className="max-w-lg mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
     <div className="grid grid-cols-1 gap-6">
       <div>
