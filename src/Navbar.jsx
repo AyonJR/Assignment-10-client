@@ -39,7 +39,11 @@ const Navbar = () => {
           <input type="checkbox" checked={theme === "dark"} onChange={toggleTheme} value="synthwave" className="toggle  switch theme-controller"/>
           </div>
                     </li> */}
-
+                   <li>
+                    <div className="mr-2 ">
+          <input type="checkbox" checked={theme === "dark"} onChange={toggleTheme} value="synthwave" className="toggle  switch theme-controller "/>
+          </div>
+                   </li>
                     <li>
                     {user ? (
                     <>
@@ -57,6 +61,7 @@ const Navbar = () => {
                     </>
                 )}
                     </li>
+                    
                     </ul>
                 </div>
                 <a className="btn btn-ghost text-3xl">WonderTour</a>
@@ -73,12 +78,12 @@ const Navbar = () => {
             </div>
             <div className="navbar-end"> 
             <div className="mr-2 ">
-          <input type="checkbox" checked={theme === "dark"} onChange={toggleTheme} value="synthwave" className="toggle  switch theme-controller"/>
+          <input type="checkbox" checked={theme === "dark"} onChange={toggleTheme} value="synthwave" className="toggle  switch theme-controller hidden sm:inline-block"/>
           </div>
           {user ? (
     <>
         {/* User photo and logout button */}
-        <div className="relative hidden sm:inline-block">
+        <div className="relative ">
             <img src={user.photoURL} alt={user.displayName} className="w-10 h-10 mr-4 rounded-full cursor-pointer" />
             <span className="absolute top-full left-1/2 transform -translate-x-1/2 bg-black text-white text-xs py-1 px-2 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300">{user.displayName}</span>
         </div>
