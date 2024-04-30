@@ -10,7 +10,7 @@ const TouristSpot = ({ spot }) => {
     return (
         <Fade direction="up" cascade>
             <div>
-                <div className="card lg:mx-0 mx-3 lg:w-96 bg-base-100 shadow-xl">
+                <div className="card lg:mx-0 lg:h-[550px] mx-3 lg:w-96 bg-base-100 shadow-xl">
                     <figure><img className="lg:h-[250px] w-full" src={image} alt="Shoes" /></figure>
                     <div className="card-body">
                         <h2 className="card-title  font-bold">{tourists_spot_name}</h2>

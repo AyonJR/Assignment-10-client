@@ -1,8 +1,21 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# B9 A10 Type-01
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+# Wonder Tour
+- Live site link  [  https://assignment-9-7fad9.web.app ]
+- Github Repository link [https://github.com/programming-hero-web-course-4/b9a9-real-estate-AyonJR]
+
+# Features and Characteristics 
+
+-  Allow users to sign up, log in, and manage their accounts for personalized experiences and access to exclusive features.
+- Provide a searchable and filterable list of tourist spots with detailed information, enabling users to explore destinations easily and find relevant information.
+- Display tourist spots geographically on an interactive map, allowing users to explore, discover nearby attractions, and get directions to their desired destinations.
+- Enable users to leave reviews and ratings for tourist spots they have visited, helping others make informed decisions and fostering community engagement.
+- Allow users to bookmark their favorite spots, create curated lists, and share their travel experiences with friends or on social media platforms for enhanced engagement and user-generated content.
+
+# Packages used
+- React Simple Typewriter 
+- React Awesome Reveal

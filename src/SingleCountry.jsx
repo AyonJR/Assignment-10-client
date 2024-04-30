@@ -10,7 +10,7 @@ const SingleCountry = ({ country }) => {
 
         <div>
             <Link to={`/singleCountryDetails/${country_name}`}>
-                <div className="card bg-base-100 shadow-lg image-full">
+                <div className="card h-[300px] bg-base-100 shadow-lg image-full">
                     <figure><img src={image} alt="Country" /></figure>
                     <div className="card-body">
                         <h2 className="card-title flex justify-center font-bold">{country_name}</h2>
