@@ -36,7 +36,7 @@ const UpdateInfo = () => {
             user_name: updatedUserName
         };
 
-        fetch(`http://localhost:5000/addSpot/${_id}`, {
+        fetch(`https://final-assignment-10.vercel.app/addSpot/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type":"application/json"

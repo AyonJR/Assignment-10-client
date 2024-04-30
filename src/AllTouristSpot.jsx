@@ -14,7 +14,7 @@ const AllTouristSpot = () => {
         // Replace this with your actual fetch logic
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:5000/addSpot');
+                const response = await fetch('https://final-assignment-10.vercel.app/addSpot');
                 const data = await response.json();
                 setSpots(data);
                 setSortedSpots(data); // Initially set sorted spots to unsorted spots

@@ -10,7 +10,7 @@ const MyListPage = () => {
   const [userData, setUserData] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/addSpot/email?email=${user?.email}`)
+    fetch(`https://final-assignment-10.vercel.app/addSpot/email?email=${user?.email}`)
       .then(res => res.json())
       .then(data => setUserData(data));
   }, []);
@@ -26,7 +26,7 @@ const MyListPage = () => {
       reverseButtons: true
     }).then(result => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/addSpot/${id}`, {
+        fetch(`https://final-assignment-10.vercel.app/addSpot/${id}`, {
           method: 'DELETE'
         })
           .then(res => res.json())

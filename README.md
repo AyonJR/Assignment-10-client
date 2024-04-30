@@ -5,8 +5,10 @@
 
 
 # Wonder Tour
-- Live site link  [  https://assignment-9-7fad9.web.app ]
-- Github Repository link [https://github.com/programming-hero-web-course-4/b9a9-real-estate-AyonJR]
+- Client site link  [ https://assignment-10-343b7.web.app ]
+- Server site link  [ final-assignment-10.vercel.app  ]
+- Client site Repository link [https://github.com/programming-hero-web-course-4/B9A10-client-side-AyonJR/tree/main]
+- Server site Repository link [ https://github.com/programming-hero-web-course-4/b9a10-server-side-AyonJR ]
 
 # Features and Characteristics 
 

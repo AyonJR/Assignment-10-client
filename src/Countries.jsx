@@ -7,7 +7,7 @@ const Countries = () => {
 
 
   useEffect( ()=> {
-    fetch('http://localhost:5000/countries')
+    fetch('https://final-assignment-10.vercel.app/countries')
    .then(res => res.json())
    .then(data => setAllCountries(data) )
   }  , [])

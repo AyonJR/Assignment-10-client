@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader:() => fetch('http://localhost:5000/addSpot'),
+        loader:() => fetch('https://final-assignment-10.vercel.app/addSpot'),
       },
       {
         path: "/login",
@@ -51,23 +51,23 @@ const router = createBrowserRouter([
       {
         path: "/myListPage",
         element:<PrivateRoute><MyListPage></MyListPage></PrivateRoute>,
-        // loader: ({params})=> fetch(`http://localhost:5000/addSpot/${params.email}`)
+        // loader: ({params})=> fetch(`https://final-assignment-10.vercel.app/addSpot/${params.email}`)
       },
       {
         path: "/viewDetails/:id", 
         element:<PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/addSpot/${params.id}`)
+        loader: ({params}) => fetch(`https://final-assignment-10.vercel.app/addSpot/${params.id}`)
         
       },
       {
         path:"/updateInfo/:id" ,
         element:<PrivateRoute><UpdateInfo></UpdateInfo></PrivateRoute> ,
-        loader: ({params}) => fetch(`http://localhost:5000/addSpot/${params.id}`)
+        loader: ({params}) => fetch(`https://final-assignment-10.vercel.app/addSpot/${params.id}`)
       } ,
       {
         path: "/singleCountryDetails/:country",
         element: <SingleCountryDetails />,
-        loader: ({ params }) => fetch(`http://localhost:5000/countries/${params.country}`)
+        loader: ({ params }) => fetch(`https://final-assignment-10.vercel.app/countries/${params.country}`)
     }
     
    
