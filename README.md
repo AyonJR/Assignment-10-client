@@ -1,23 +1,38 @@
 
+# Overview
 
-# B9 A10 Type-01
+- Wonder Tour is a travel platform that enhances user experiences.
+- Offers personalized user accounts for tailored experiences.
+- Provides a searchable list of tourist spots with detailed information.
+- Features interactive maps for easy exploration of destinations.
+- Includes user reviews and ratings to help travelers make informed decisions.
+- Allows users to bookmark their favorite spots. 
+- Enables users to share their travel experiences and favorite spots with others.
+
+
+# Features 
+
+-  Enable user accounts for personalized experiences and access to exclusive features.
+- Provide a searchable list of tourist spots with detailed information and interactive maps for exploration.
+- Allow users to leave reviews, bookmark favorite spots, and share travel experiences for enhanced engagement.
+
+
+# Technologies used
+- Tailwind-Css
+- Axios
+- React 
+- Mongodb
+- Express-js
+- firebase 
+- vercel 
+
+# Steps to clone the project
+- Clone the repository: Download the project repository from GitHub to your local machine.
+- Navigate into the project directory: Change your directory to the project's root folder.
+- Install dependencies: Install all the required dependencies and packages specified in the project.
+- Run the project: Start the application to run it on your local machine.
 
 
 
-# Wonder Tour
-- Client site link  [ https://assignment-10-343b7.web.app ]
-- Server site link  [ final-assignment-10.vercel.app  ]
-- Client site Repository link [https://github.com/programming-hero-web-course-4/B9A10-client-side-AyonJR/tree/main]
-- Server site Repository link [ https://github.com/programming-hero-web-course-4/b9a10-server-side-AyonJR ]
 
-# Features and Characteristics 
 
--  Allow users to sign up, log in, and manage their accounts for personalized experiences and access to exclusive features.
-- Provide a searchable and filterable list of tourist spots with detailed information, enabling users to explore destinations easily and find relevant information.
-- Display tourist spots geographically on an interactive map, allowing users to explore, discover nearby attractions, and get directions to their desired destinations.
-- Enable users to leave reviews and ratings for tourist spots they have visited, helping others make informed decisions and fostering community engagement.
-- Allow users to bookmark their favorite spots, create curated lists, and share their travel experiences with friends or on social media platforms for enhanced engagement and user-generated content.
-
-# Packages used
-- React Simple Typewriter 
-- React Awesome Reveal
